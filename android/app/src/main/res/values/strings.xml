@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">InTrackSDKDemo</string>
+    <string name="default_notification_channel_id">intrack_default_channel</string>
+    <string name="default_notification_channel_name"><![CDATA[News & announcements]]></string>
+</resources>
