@@ -73,7 +73,7 @@ PODS:
   - fmt (6.2.1)
   - glog (0.3.5)
   - InTrack (1.0.0)
-  - InTrackReactNative (1.1.2):
+  - InTrackReactNative (1.1.5):
     - InTrack
     - React
   - libevent (2.1.12)
@@ -517,7 +517,7 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 5337263514dd6f09803962437687240c5dc39aa4
   InTrack: add6fcc90506dc344e9deb3023bfe8585335ba7b
-  InTrackReactNative: 73fa4f9b566b442bc7e91864cfcb097a83a415e3
+  InTrackReactNative: 2ca7b6d89b9b60dedeffeac96142ce7ec197b768
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: 1aa4f6a6ee7256b83db99ec1ccdaa80d10f9af9b
   RCT-Folly: a21c126816d8025b547704b777a2ba552f3d9fa9

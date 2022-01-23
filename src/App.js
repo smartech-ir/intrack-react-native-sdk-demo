@@ -38,6 +38,10 @@ const App = () => {
     }
     initItrack();
 
+    InTrack.onNotificationClicked(event => {
+      console.log('push notification clicked:', event);
+    });
+
     // these events are sent from native code, see the following files for implementation details
     // - android/app/src/main/java/com/intracksdkdemo/MainActivity.java (for Android)
     // - ios/InTrackSDKDemo/AppDelegate.m (for iOS)
@@ -45,6 +49,7 @@ const App = () => {
     // if you don't want to mess with native codes, you can use a package for this reason, like:
     // https://github.com/wix/react-native-notifications
     DeviceEventEmitter.addListener('pushTokenAvailable', token => {
+      console.log('PUSH TOKEN', token);
       context.dispatch({type: 'TOKEN_AVAILABLE', payload: token});
     });
 
@@ -55,6 +60,7 @@ const App = () => {
       });
     });
 
+    //this is the same as InTrack.onNotificationClicked (but it is just work if app is in foreground)
     DeviceEventEmitter.addListener('notificationClicked', event => {
       console.log('notificationClicked', event);
     });
@@ -62,6 +68,7 @@ const App = () => {
       console.log('notificationRecieved', event);
     });
   });
+
   return (
     <NativeBaseProvider>
       <NavigationContainer>

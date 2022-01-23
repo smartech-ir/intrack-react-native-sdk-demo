@@ -92,13 +92,13 @@ static void InitializeFlipper(UIApplication *application) {
   completionHandler(0);
 }
 
-// when user click on notification
+// when user click on notification (you can also get with InTrack.onNotificationClicked listener in js)
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler{
   [RCTAppModule sendEvent:@"notificationClicked" body:response.notification.request.content.userInfo];
   completionHandler();
 }
 
-// showing notification When app is running.
+//// showing notification When app is running.
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
   [RCTAppModule sendEvent:@"notificationRecieved" body:notification.request.content.userInfo];
   completionHandler(0);

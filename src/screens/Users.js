@@ -187,7 +187,7 @@ const userForm = [
   },
 ];
 
-export default function EventsScreen() {
+export default function UserDetailsScreen() {
   const [userDetails, setUserDetails] = useState({
     emailOptIn: true,
     smsOptIn: true,
@@ -207,7 +207,7 @@ export default function EventsScreen() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const loginUser = () => {
+  const getUserDetails = () => {
     const ud = Object.assign({}, userDetails);
     try {
       if (userDetails.attributes) {
@@ -219,7 +219,21 @@ export default function EventsScreen() {
       });
       return;
     }
-    InTrack.login(ud);
+
+    //remove empty objects/strings
+    Object.keys(ud)
+      .filter(key => !['emailOptIn', 'smsOptIn'].includes(key))
+      .forEach(key => {
+        if (!ud[key]) {
+          delete ud[key];
+        }
+      });
+
+    return ud;
+  };
+
+  const loginUser = () => {
+    InTrack.login(getUserDetails());
     setUserId(userDetails.userId);
     toast.show({
       description: 'login command called',
@@ -227,19 +241,7 @@ export default function EventsScreen() {
   };
 
   const updateUserProfile = () => {
-    const ud = Object.assign({}, userDetails);
-    try {
-      if (userDetails.attributes) {
-        ud.attributes = JSON.parse(userDetails.attributes);
-      }
-    } catch (error) {
-      toast.show({
-        description: 'attributes is not a valid json',
-      });
-      return;
-    }
-
-    InTrack.updateProfile(ud);
+    InTrack.updateProfile(getUserDetails());
     toast.show({
       description: 'updateProfile command called',
     });

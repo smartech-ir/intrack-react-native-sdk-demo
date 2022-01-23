@@ -62,9 +62,9 @@ export default function PushScreen() {
         message: 'Push Message',
         media: 'https://docs.intrack.ir/img/logo.png',
         // sound: '',
-        link: 'https://smartech.ir',
-        buttons:
-          '[{"t":"inTrack","l":"https:\\/\\/intrack.ir"},{"t":"adverge","l":"https:\\/\\/adverge.ir"}]',
+        // link: 'https://smartech.ir',
+        // buttons:
+        // '[{"t":"inTrack","l":"https:\\/\\/intrack.ir"},{"t":"adverge","l":"https:\\/\\/adverge.ir"}]',
       },
       PUSH_CHANNEL,
     );

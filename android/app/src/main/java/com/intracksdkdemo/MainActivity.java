@@ -23,7 +23,7 @@ public class MainActivity extends ReactActivity {
       NotificationManager notificationManager =
               getSystemService(NotificationManager.class);
       notificationManager.createNotificationChannel(new NotificationChannel(channelId,
-              channelName, NotificationManager.IMPORTANCE_LOW));
+              channelName, NotificationManager.IMPORTANCE_HIGH));
     }
 
     // get firebase push token and send it to react-native
