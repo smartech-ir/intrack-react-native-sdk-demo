@@ -71,7 +71,7 @@ export default function PushScreen() {
   };
 
   const sendEvent = () => {
-    InTrack.sendEvent({eventName: 'event push trigger'});
+    InTrack.sendEvent({eventName: 'event_push_trigger'});
     toast.show({
       description: '"event push trigger" sent',
     });

@@ -11,7 +11,7 @@ import {
 import InTrack from 'intrack-react-native-bridge';
 
 export default function EventsScreen() {
-  const [eventName, setEventName] = useState('event name');
+  const [eventName, setEventName] = useState('custom_event');
   const [eventDetails, setEventDetails] = useState(`{
       "key1": 123,
       "key2": "val2"
@@ -19,14 +19,14 @@ export default function EventsScreen() {
   const toast = useToast();
 
   const sendEimpleEvent = () => {
-    InTrack.sendEvent({eventName: 'simple event'});
+    InTrack.sendEvent({eventName: 'simple_event'});
     toast.show({
       description: '"simple event" sent',
     });
   };
   const sendDetailedEvent = () => {
     InTrack.sendEvent({
-      eventName: 'detailed event',
+      eventName: 'detailed_event',
       eventData: {
         numerical_field: 123,
         string_field: 'string',
@@ -54,7 +54,7 @@ export default function EventsScreen() {
     InTrack.sendEvent({eventName, eventData});
 
     toast.show({
-      description: '"custom event" sent',
+      description: '"custom_event" sent',
     });
   };
 

@@ -117,15 +117,15 @@ const userForm = [
     helperText: 'Last Name must be less than 1000 charachter',
   },
   {
+    formKey: 'gender',
+    label: 'Gender',
+    type: 'select',
+  },
+  {
     formKey: 'email',
     label: 'Email',
     type: 'text',
     helperText: 'it must be a valid email format',
-  },
-  {
-    formKey: 'emailOptIn',
-    label: 'Email OptIn?',
-    type: 'switch',
   },
   {
     formKey: 'hashedEmail',
@@ -139,8 +139,28 @@ const userForm = [
     helperText: 'must containes country code (+989123456789)',
   },
   {
+    formKey: 'hashedPhone',
+    label: 'Hashed Phone Number',
+    type: 'text',
+  },
+  {
+    formKey: 'emailOptIn',
+    label: 'Email OptIn?',
+    type: 'switch',
+  },
+  {
     formKey: 'smsOptIn',
     label: 'SMS OptIn?',
+    type: 'switch',
+  },
+  {
+    formKey: 'pushOptIn',
+    label: 'Push OptIn?',
+    type: 'switch',
+  },
+  {
+    formKey: 'webPushOptIn',
+    label: 'WebPush OptIn?',
     type: 'switch',
   },
   {
@@ -160,11 +180,6 @@ const userForm = [
     label: 'city',
     type: 'text',
     helperText: 'it be less than 250 charachter',
-  },
-  {
-    formKey: 'gender',
-    label: 'Gender',
-    type: 'select',
   },
   {
     formKey: 'birthday',
@@ -191,6 +206,8 @@ export default function UserDetailsScreen() {
   const [userDetails, setUserDetails] = useState({
     emailOptIn: true,
     smsOptIn: true,
+    pushOptIn: true,
+    webPushOptIn: true,
     attributes: `{
       "key1": 1234,
       "key2": "value"
@@ -222,7 +239,12 @@ export default function UserDetailsScreen() {
 
     //remove empty objects/strings
     Object.keys(ud)
-      .filter(key => !['emailOptIn', 'smsOptIn'].includes(key))
+      .filter(
+        key =>
+          !['emailOptIn', 'smsOptIn', 'pushOptIn', 'webPushOptIn'].includes(
+            key,
+          ),
+      )
       .forEach(key => {
         if (!ud[key]) {
           delete ud[key];

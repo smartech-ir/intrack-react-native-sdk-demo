@@ -20,14 +20,35 @@ const App = () => {
 
   useEffect(() => {
     // initialize InTrack
+    console.log('here 1');
     async function initItrack() {
+      console.log('here 2');
       try {
+        console.log('here 3');
         if (!(await InTrack.isInitialized())) {
+          console.log('here 4');
+          // const options = {
+          //   appKey: 'APP_KEY',
+          //   iosAuthKey: 'IOS_AUTH_KEY',
+          //   androidAuthKey: 'ANDROID_AUTH_KEY',
+          // };
+
+          // mohsen on stage
+          // const options = {
+          //   appKey: 'AAAACg',
+          //   iosAuthKey: 'c7b89232-2f9d-4eb5-ba9c-5875b70f8c42',
+          //   androidAuthKey: '1754e3fa-2187-4b9c-a8ca-c1013c286caf',
+          // };
+
+          //production
           const options = {
-            appKey: 'APP_KEY',
-            iosAuthKey: 'IOS_AUTH_KEY',
-            androidAuthKey: 'ANDROID_AUTH_KEY',
+            appKey: 'AAAAAg',
+            iosAuthKey: 'eb1c4f83-78c6-43cb-aa6a-9744d4f95cc6',
+            androidAuthKey: '562f902b-5145-42a0-a5ab-61046179e018',
           };
+          // await InTrack.init('AAAAAg', '562f902b-5145-42a0-a5ab-61046179e018', {
+          //   nonStandardPhoneValidation: true,
+          // });
 
           await InTrack.init(options);
         }
