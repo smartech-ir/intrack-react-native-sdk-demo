@@ -38,6 +38,12 @@ export default function HomeScreen({navigation}) {
           title="Push Notification"
           description="push notification"
         />
+        <Section
+          navigation={navigation}
+          onPress={() => navigation.navigate('Crash')}
+          title="Crash Reporting"
+          description="send crash data to InTrack"
+        />
       </VStack>
     </ScrollView>
   );

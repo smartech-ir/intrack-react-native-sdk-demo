@@ -14,6 +14,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.facebook.soloader.SoLoader;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.InvocationTargetException;
@@ -69,11 +70,15 @@ public class MainApplication extends Application implements ReactApplication {
       messageReceiver = new BroadcastReceiver() {
           @Override
           public void onReceive(Context context, Intent intent) {
-              Map<String, Object> messageData = InTrackMessagingService.getUserResponseData(intent);
-
-              JSONObject jsonMessage = new JSONObject(messageData);
-
-              jsModule.emit("notificationClicked", jsonMessage.toString());
+              JSONObject messageData = null;
+              try {
+                  messageData = InTrackMessagingService.getUserResponseData(intent);
+              } catch (JSONException e) {
+                  e.printStackTrace();
+              }
+              if(messageData != null && messageData.has("id")){
+                  jsModule.emit("notificationClicked", messageData.toString());
+              }
           }
       };
       IntentFilter filter = new IntentFilter();

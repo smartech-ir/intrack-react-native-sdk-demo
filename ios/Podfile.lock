@@ -72,9 +72,9 @@ PODS:
     - FlipperKit/FlipperKitNetworkPlugin
   - fmt (6.2.1)
   - glog (0.3.5)
-  - InTrack (1.0.1)
-  - InTrackReactNative (1.1.6):
-    - InTrack
+  - InTrack (1.2.0)
+  - InTrackReactNative (1.2.0):
+    - InTrack (= 1.2.0)
     - React
   - libevent (2.1.12)
   - OpenSSL-Universal (1.1.180)
@@ -516,12 +516,12 @@ SPEC CHECKSUMS:
   Flipper-RSocket: d9d9ade67cbecf6ac10730304bf5607266dd2541
   FlipperKit: d8d346844eca5d9120c17d441a2f38596e8ed2b9
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
-  glog: 5337263514dd6f09803962437687240c5dc39aa4
-  InTrack: 2d0a3a1de0e65c7d3ef8ced5a907b527029c774a
-  InTrackReactNative: 2925a505a9c1f366ca2522ebde565cf019739f3c
+  glog: 85ecdd10ee8d8ec362ef519a6a45ff9aa27b2e85
+  InTrack: 5a76b5a2c5b821e43873edf7b67caab35609e7b3
+  InTrackReactNative: 98303b0fe6079db092b8f579e1d464b531bbc859
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: 1aa4f6a6ee7256b83db99ec1ccdaa80d10f9af9b
-  RCT-Folly: a21c126816d8025b547704b777a2ba552f3d9fa9
+  RCT-Folly: 803a9cfd78114b2ec0f140cfa6fa2a6bafb2d685
   RCTRequired: cd47794163052d2b8318c891a7a14fcfaccc75ab
   RCTTypeSafety: 393bb40b3e357b224cde53d3fec26813c52428b1
   React: dec6476bc27155b250eeadfc11ea779265f53ebf
@@ -553,4 +553,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 3b7ce0a72286f1cfea9d39a76f381a547fe57dd2
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

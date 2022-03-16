@@ -10,6 +10,7 @@ import HomeScreen from './screens/Home';
 import EventScreen from './screens/Events';
 import UsersScreen from './screens/Users';
 import PushScreen from './screens/Push';
+import CrashScreen from './screens/CrashReport';
 
 import InTrack from 'intrack-react-native-bridge';
 
@@ -27,9 +28,17 @@ const App = () => {
             appKey: 'APP_KEY',
             iosAuthKey: 'IOS_AUTH_KEY',
             androidAuthKey: 'ANDROID_AUTH_KEY',
+            loggingEnabled: true,
+            enableCrashReporting: true,
           };
 
           await InTrack.init(options);
+
+          //one platform (ios only for example):
+          // await InTrack.init(options.appKey, options.iosAuthKey, {
+          // loggingEnabled: options.loggingEnabled,
+          // enableCrashReporting: options.enableCrashReporting,
+          // });
         }
         InTrack.start();
       } catch (error) {
@@ -81,6 +90,7 @@ const App = () => {
           <Stack.Screen name="Events" component={EventScreen} />
           <Stack.Screen name="Users" component={UsersScreen} />
           <Stack.Screen name="Push" component={PushScreen} />
+          <Stack.Screen name="Crash" component={CrashScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>
